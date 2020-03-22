@@ -4,7 +4,7 @@
     <h1>{{ title }}</h1>
     <ul class="list-group">
     @each(post in posts)
-        <li class="list-group-item">{{ post.title }}</li>    
+    <li class="list-group-item"><a href="/posts/{{post.id}}">{{ post.title }}</a></li>    
     @endeach
     </ul>
 @endsection
