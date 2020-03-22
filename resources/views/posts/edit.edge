@@ -3,20 +3,19 @@
 @section('content')
     <a href="/posts">Go Back</a>
     <hr>
-    <h2>Add Post</h2>
-    <form action="/posts" method="POST">
+    <h2>Edit Post</h2>
+<form action="{{ '/posts/' + post.id + '?_method=PUT' }}" method="POST">
         {{ csrfField() }}
         <div class="form-group">
             <label for="title">Title</label>
-        <input type="text" name="title" id="title" class="form-control" placeholder="Post title" value="{{old('title', '')}}">
+        <input type="text" name="title" id="title" class="form-control" placeholder="Post title" value="{{ post.title }}">
         {{ elIf('<span class="text-danger">$self</span>', getErrorFor('title'), hasErrorFor('title'))}}
         </div>
         <div class="form-group">
             <label for="body">Body</label>
-            <textarea type="text" name="body" id="body" class="form-control" placeholder="Type some body here">{{old('body', '')}}</textarea>
+        <textarea type="text" name="body" id="body" class="form-control" placeholder="Type some body here">{{ post.body }}</textarea>
             {{ elIf('<span class="text-danger">$self</span>', getErrorFor('body'), hasErrorFor('body'))}}
         </div>
         <button class="btn btn-primary" type="submit">Submit</button>
-        <button class="btn btn-danger" type="reset">Reset</button>
     </form>
 @endsection
