@@ -1,0 +1,10 @@
+@layout('main')
+
+@section('content')
+    <h1>{{ title }}</h1>
+    <ul class="list-group">
+    @each(post in posts)
+        <li class="list-group-item">{{ post.title }}</li>    
+    @endeach
+    </ul>
+@endsection
